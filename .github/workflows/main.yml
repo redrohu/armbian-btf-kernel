@@ -28,9 +28,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - boardfamily: amlogic
+          - boardfamily: meson-gxl
             branch: current
-            representative: phicomm-n1
+            representative: aml-s9xx-box
       fail-fast: false
     env:
       BOARD_FAMILY: ${{ matrix.boardfamily }}
@@ -97,7 +97,7 @@ jobs:
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_name: daeuniverse/armbian-btf-kernel
+          repo_name: redrohu/armbian-btf-kernel
           repo_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           file: ${{ steps.output.outputs.FILEPATH }}
           asset_name: ${{ steps.output.outputs.FILE_DISPLAY_NAME }}
